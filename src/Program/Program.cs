@@ -22,8 +22,12 @@ namespace Full_GRASP_And_SOLID
 
             Recipe recipe = new Recipe();
             recipe.FinalProduct = GetProduct("Café con leche");
-            recipe.AddStep(new Step(GetProduct("Café"), 100, GetEquipment("Cafetera"), 120));
-            recipe.AddStep(new Step(GetProduct("Leche"), 200, GetEquipment("Hervidor"), 60));
+            /// <summary>
+            /// usando CREATOR en vez de crear cada step en el Program, se modifica el metodo addStep en recipe para crear directamente en el metodo el step
+            /// </summary>
+            /// <returns></returns>
+            recipe.AddStep(GetProduct("Leche"), 200, GetEquipment("Hervidor"), 60);
+            recipe.AddStep(GetProduct("Leche"), 200, GetEquipment("Hervidor"), 60);
 
             IPrinter printer;
             printer = new ConsolePrinter();
